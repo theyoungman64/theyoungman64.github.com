@@ -103,7 +103,7 @@ function renderCards({ imgUrl, title, fakyutubUrl }) {
   return `<div class="col s12 l4">
   <div class="card medium">
     <div class="card-image">
-      <img class="activator" loading='lazy' src="${imgUrl}.jpg">
+      <img class="activator" loading='lazy' src="${imgUrl}">
     </div>
     <div class="card-content">
       <p>${title}</p>
