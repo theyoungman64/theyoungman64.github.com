@@ -23,6 +23,9 @@ async function fetchingData() {
   }
 }
 
+/**
+ * @description append card item every time page scrolled/ load item clicked
+ */
 function addItems() {
   let container = document.querySelector('.row');
   if (data.length > 0) {
@@ -35,15 +38,20 @@ function addItems() {
   }
 }
 
+/**
+ * 
+ * @param {*} param0 
+ * @returns pop item data
+ */
 function getItems({ hash }) {
   if (hash === '#recent') return getRecentItems();
-  // if (hash === '#actress') return getActress();
   if (/#\?actress=\w+/.test(hash)) return getItemsByActress({ actress: hash.split('=')[1] });
+  if (/#\?search=\w+/.test(hash)) return searchItem({ keyword: hash.split('=')[1] });
   return getRandomItems();
 }
 
-function getActress() {
-  return ['satu', 'dua'];
+function searchItem({ keyword }) {
+  return data.filter(item => item.title.toLowerCase().includes(decodeURIComponent(keyword).toLowerCase()))
 }
 
 function getRecentItems() {
@@ -91,6 +99,12 @@ function get5RandomNumber() {
     }
   }
   return number;
+}
+
+function searchByActress(keyword) {
+  return data.filter(item => {
+    return item.actress.join().toLowerCase().includes(keyword)
+  })
 }
 
 function renderAddItemsButton() {
