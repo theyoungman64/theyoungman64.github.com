@@ -122,11 +122,21 @@ function renderCards({ imgUrl, title, fakyutubUrl }) {
     <div class="card-content">
       <p>${title}</p>
     </div>
-    <div class="card-action">
+    ${fakyutubUrl ?
+      `<div class="card-action">
       <a href="${fakyutubUrl}">FK</a>
-      <a href="/video/redirector?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=480p">480</a>
-      <a href="/video/redirector?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=720p">720</a>
-      <a href="/video/redirector?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=1080p">1080</a>
+      <a href="https://my-javtiful-favorite.herokuapp.com/video/stream?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=480p">480</a>
+      <a href="https://my-javtiful-favorite.herokuapp.com/video/stream?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=720p">720</a>
+      <a href="https://my-javtiful-favorite.herokuapp.com/video/stream?id=${fakyutubUrl.split('/')[fakyutubUrl.split('/').length - 1]}&resolution=1080p">1080</a>
+  </div>` :
+      '<div class="card-action"></div>'}
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+      <p>Title : ${title} </p>
+      <p>Actress : </p>
+      <ul>
+        ${actressLink}
+      </ul>
     </div>
   </div>`;
 }
