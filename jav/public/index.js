@@ -113,7 +113,7 @@ function renderAddItemsButton() {
   </div>`
 }
 
-function renderCards({ imgUrl, title, fakyutubUrl }) {
+function renderCards({ imgUrl, title, fakyutubUrl, actress }) {
   return `<div class="col s12 l4">
   <div class="card medium">
     <div class="card-image">
@@ -135,7 +135,7 @@ function renderCards({ imgUrl, title, fakyutubUrl }) {
       <p>Title : ${title} </p>
       <p>Actress : </p>
       <ul>
-        ${actressLink}
+        ${actress.map(actres => `<li><a href="/jav/?actress=${actress}">${actress}</a></li>`)}
       </ul>
     </div>
   </div>`;
