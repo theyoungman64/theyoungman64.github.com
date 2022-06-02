@@ -80,16 +80,6 @@ function searchByActress(keyword) {
   })
 }
 
-function addItems() {
-  let container = document.querySelector('.row');
-  if (data.length > 0) {
-    let items = window.location.hash == '#recent' ? getItems() : getRandomItems();
-    items.forEach(item => {
-      container.innerHTML += renderCards(item);
-    });
-  }
-}
-
 function get5RandomNumber() {
   let number = [];
   while (number.length < 5) {
