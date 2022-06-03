@@ -131,7 +131,7 @@ function renderCards({ imgUrl, title, fakyutubUrl, actress }) {
       <p>Title : ${title} </p>
       <p>Actress : </p>
       <ul>
-        ${actress.map(actres => `<li><a href="/jav/?actress=${actress}">${actress}</a></li>`)}
+        ${actress.map(actres => `<li><a href="/jav/#?actress=${actres}">${actres}</a></li>`)}
       </ul>
     </div>
   </div>`;
