@@ -8,6 +8,12 @@ window.addEventListener('scroll', () => {
   }
 });
 
+window.addEventListener('hashchange', async evt => {
+  document.querySelector('.row').innerHTML = '';
+  data = await fetchingData();
+  addItems();
+})
+
 async function init() {
   M.Sidenav.init(document.querySelectorAll('.sidenav'));
   data = await fetchingData();
